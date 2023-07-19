@@ -2,7 +2,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #1b1d23; /* Couleur de fond de la barre de navigation */
+  background-color: #2b2c2e; /* Couleur de fond de la barre de navigation */
   color: #fff; /* Couleur du texte de la barre de navigation */
   padding: 10px 20px;
   font-size: 24px;

@@ -1,0 +1,8 @@
+<!-- icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="seat-normal" viewBox="0 0 56 56">
+    <!-- Votre icône de siège au format SVG ici -->
+    <!-- Par exemple, un cercle représentant le siège -->
+    <circle cx="28" cy="28" r="22" fill="grey" />
+  </symbol>
+</svg>
