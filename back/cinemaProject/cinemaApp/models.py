@@ -1,7 +1,7 @@
 from django.db import models
 
-class User(models.Model):
-    ID_user = models.IntegerField()
+class Utilisateur(models.Model):
+    ID_utilisateur = models.IntegerField()
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
     email = models.EmailField()
@@ -13,6 +13,7 @@ class Film(models.Model):
     resume = models.CharField(max_length=500)
     duree = models.IntegerField()
     estSpecial = models.BooleanField()
+    image = models.URLField(default="https://dummyimage.com/600x400/000/fff")
 
 class Salle(models.Model):
     ID_salle = models.IntegerField()
