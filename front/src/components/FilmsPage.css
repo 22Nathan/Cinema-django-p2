@@ -1,0 +1,61 @@
+/* FilmsPage.css */
+
+.films-page {
+    padding: 20px;
+    background-color: #090a0b;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .film-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .film-card {
+    max-width: 300px;
+    margin: 10px;
+    background-color: #1b1d23;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .film-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+  
+  .film-info {
+    padding: 10px;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .film-title {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .film-summary {
+    font-size: 16px;
+    color: white;
+  }
+  
+  .film-duration {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .film-special {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ff4b2b;
+    font-weight: bold;
+  }
+  

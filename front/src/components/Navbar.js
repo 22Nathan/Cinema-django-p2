@@ -15,11 +15,6 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/cinemas" className="nav-link">
-            Cinémas
-          </Link>
-        </li>
-        <li className="nav-item">
           <Link to="/reservation" className="nav-link">
             Reservation
           </Link>
