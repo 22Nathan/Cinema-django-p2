@@ -1,0 +1,47 @@
+/* Home.css */
+
+/* Home.css */
+
+/* Style de la barre de navigation */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  /* Style du lien de la marque dans la barre de navigation */
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* Style de la liste des liens de navigation */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style d'un élément de la liste des liens de navigation */
+  .nav-item {
+    margin-right: 15px;
+  }
+  
+  /* Style du lien dans la liste des liens de navigation */
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* Style du lien actif dans la liste des liens de navigation */
+  .nav-link.active {
+    color: #ff9800; /* Couleur du lien actif (par exemple, utilisez la couleur de votre choix) */
+  }
+  
