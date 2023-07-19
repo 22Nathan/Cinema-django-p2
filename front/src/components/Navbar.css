@@ -1,47 +1,73 @@
-/* Home.css */
-
-/* Home.css */
-
 /* Style de la barre de navigation */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-  }
-  
-  /* Style du lien de la marque dans la barre de navigation */
-  .navbar-brand {
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  /* Style de la liste des liens de navigation */
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style d'un élément de la liste des liens de navigation */
-  .nav-item {
-    margin-right: 15px;
-  }
-  
-  /* Style du lien dans la liste des liens de navigation */
-  .nav-link {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  /* Style du lien actif dans la liste des liens de navigation */
-  .nav-link.active {
-    color: #ff9800; /* Couleur du lien actif (par exemple, utilisez la couleur de votre choix) */
-  }
-  
+  display: flex;
+  align-items: center;
+  background-color: #1b1d23; /* Couleur de fond de la barre de navigation */
+  color: #fff; /* Couleur du texte de la barre de navigation */
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Style du lien de la marque dans la barre de navigation */
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Style de la liste de navigation */
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: auto; 
+}
+
+/* Style des éléments de la liste de navigation */
+.nav-item {
+  margin-right: 30px;
+}
+
+/* Style des liens de navigation */
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Style du lien actif */
+.nav-link.active {
+  font-weight: bold;
+}
+
+.navbar-logo {
+  max-width: 100px; /* Ajustez la taille du logo selon vos préférences */
+  height: 100px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes the buttons to the right */
+}
+
+.auth-buttons .nav-link {
+  margin-left: 20px;
+}
+
+
+.navbar-auth {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-auth .nav-item {
+  margin-left: 20px; /* Add space between "Se connecter" and "Inscription" */
+}
