@@ -37,7 +37,6 @@ def getUserByEmailMdp(request):
     serializers = UserSerializer(user)
     return Response(serializers.data)
 
-
 @api_view(['GET'])
 def getAllFilms(request):
     films = Film.objects.all() 
