@@ -4,14 +4,18 @@ from .models import *
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['email', 'mdp']
+        model = Utilisateur
+        fields = "__all__"
 
-        def create(self, data):
-            user = User.objects.create(user)
-            user.set_password(data['password'])
-            user.save()
-            return user
+    # class Meta:
+    #     model = Utilisateur
+    #     fields = ['email', 'mdp']
+
+    #     def create(self, data):
+    #         user = User.objects.create(user)
+    #         user.set_password(data['password'])
+    #         user.save()
+    #         return user
 
 class FilmSerializer(serializers.ModelSerializer):
     class Meta:
