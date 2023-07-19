@@ -1,0 +1,62 @@
+/* Inscription.css */
+
+.inscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #090a0b; 
+    color: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    min-height: 100vh;
+    font-family: 'Heebo', sans-serif;
+  }
+  
+  .inscription-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styles */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #fff; 
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10px
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #fff; 
+  }
+  
+  button[type='submit'] {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #1b1d23; 
+    color: #fff; 
+    border: none;
+    cursor: pointer;
+    border-radius: 10px
+  }
+  
+  button[type='submit']:hover {
+    background-color: #1d2027;
+  }
+  

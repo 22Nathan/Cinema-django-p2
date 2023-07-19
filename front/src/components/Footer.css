@@ -1,0 +1,28 @@
+/* Style du footer */
+.footer {
+    background-color: #101114;
+    color: #fff; 
+    padding: 10px 20px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+  }
+  
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-copyright {
+    margin-top: 10px;
+  }
+  
