@@ -44,6 +44,12 @@ def getAllFilms(request):
     return Response(serializers.data)
 
 @api_view(['GET'])
+def getFilmById(request, id):
+    film = Film.objects.get(id=id) 
+    serializers = FilmSerializer(film)
+    return Response(serializers.data)
+
+@api_view(['GET'])
 def getAllSeances(request):
     seances = Seance.objects.all() 
     serializers = SeanceSerializer(seances, many=True)
