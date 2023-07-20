@@ -36,7 +36,7 @@ const FilmsPage = () => {
                           <h2 className="film-title">{film.titre}</h2>
                           <p className="film-summary">{film.resume}</p>
                           <p className="film-duration">Durée : {film.duree} minutes</p>
-                          {film.estSpecial && <p className="film-special">Film spécial</p>}
+                          {film.estSpecial && <p className="film-special">Diffusion spécial</p>}
                       </div>
                   </div>
               ))}
