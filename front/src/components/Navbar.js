@@ -14,11 +14,6 @@ const Navbar = () => {
             Films
           </Link>
         </li>
-        <li className="nav-item">
-          <Link to="/reservation" className="nav-link">
-            Reservation
-          </Link>
-        </li>
       </ul>
       <ul className="navbar-auth">
         <li className="nav-item">
