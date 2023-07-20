@@ -9,7 +9,6 @@ import CGPCalendarItem from './CGPCalendarItem'; // Importez le composant CGP-Ca
 
 
 const ReservationPage = () => {
-  const availableSeats = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3','A4', 'A5', 'A6', 'B4', 'B5', 'B6','A7', 'A8', 'A9', 'B7', 'B8', 'B9'];
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [loading, setLoading] = useState(true);
   const [seatPrice, setSeatPrice] = useState();
@@ -17,6 +16,7 @@ const ReservationPage = () => {
   const { filmId } = useParams();
   const [filmData, setFilmData] = useState(null); // État pour stocker les données du film
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [availableSeats, setAvailableSeats] = useState([]);
 
   useEffect(() => {
     const fetchFilmData = async () => {
@@ -26,6 +26,9 @@ const ReservationPage = () => {
         setSeatPrice(response.data.seance_entries[0].prix);
         setFilmData(response.data);
         setLoading(false);
+        // Extraction des numéros de siège à partir des données du film
+        const seats = response.data.seance_entries[0].siege.map((seat) => seat.numero);
+        setAvailableSeats(seats);
       } catch (error) {
         console.error('Une erreur s\'est produite lors de la récupération des données du film :', error);
         setLoading(false);
