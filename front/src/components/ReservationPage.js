@@ -7,12 +7,12 @@ import './ReservationPage.css';
 import axios from 'axios';
 import CGPCalendarItem from './CGPCalendarItem'; // Importez le composant CGP-Calendar-Item
 
-const seatPrice = 12.5; // Prix d'une place
 
 const ReservationPage = () => {
   const availableSeats = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3','A4', 'A5', 'A6', 'B4', 'B5', 'B6','A7', 'A8', 'A9', 'B7', 'B8', 'B9'];
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [seatPrice, setSeatPrice] = useState();
 
   const { filmId } = useParams();
   const [filmData, setFilmData] = useState(null); // État pour stocker les données du film
@@ -22,6 +22,7 @@ const ReservationPage = () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/film/infos/${filmId}`);
         console.log(response);
+        setSeatPrice(response.data.seance_entries[0].prix);
         setFilmData(response.data);
         setLoading(false);
       } catch (error) {
@@ -48,7 +49,9 @@ const ReservationPage = () => {
     alert(`Redirigez l'utilisateur vers la page de paiement.`);
   };
 
-  const totalPrice = selectedSeats.length * seatPrice; // Calcul du prix total
+  // console.log(filmData.seance_entries[0].prix);
+
+  const totalPrice = selectedSeats.length * seatPrice
 
   return (
     <>
