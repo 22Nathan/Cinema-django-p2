@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Utilisateur(models.Model):
     ID_utilisateur = models.IntegerField()
@@ -19,6 +21,17 @@ class Salle(models.Model):
     ID_salle = models.IntegerField()
     nom = models.CharField(max_length=20)
     capacite = models.IntegerField()
+
+class Siege(models.Model):
+    ID_siege = models.IntegerField()
+    ID_salle = models.ForeignKey('Salle', on_delete=models.CASCADE)
+    numero = models.IntegerField()
+
+@receiver(post_save, sender=Salle)
+def create_seats(sender, instance, created, **kwargs):
+    if created:
+        for numero in range(1, instance.capacite + 1):
+            Siege.objects.create(ID_siege=numero, ID_salle=instance, numero=numero)
 
 class Seance(models.Model):
     ID_seance = models.IntegerField()

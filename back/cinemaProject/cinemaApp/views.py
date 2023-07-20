@@ -75,6 +75,13 @@ def getInfosByFilmId(request, id):
                     'date': seance.date,
                     'heure': seance.heure,
                     'prix': seance.prix,
+                    'siege': [
+                        {
+                            'ID_siege': siege.ID_siege, 
+                            'numero': siege.numero
+                        }
+                        for siege in Siege.objects.filter(ID_salle=seance.ID_salle)
+                    ],
                 }
                 for seance in seance_entries
             ],
