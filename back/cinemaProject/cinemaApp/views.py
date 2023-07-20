@@ -50,6 +50,40 @@ def getFilmById(request, id):
     return Response(serializers.data)
 
 @api_view(['GET'])
+def getInfosByFilmId(request, id):
+    try:
+        film = Film.objects.get(ID_film=id)
+        seance_entries = Seance.objects.filter(ID_film=id).select_related('ID_salle')
+        
+        data = {
+            'film': {
+                'ID_film': film.ID_film,
+                'titre': film.titre,
+                'resume': film.resume,
+                'duree': film.duree,
+                'estSpecial': film.estSpecial,
+                'image': film.image,
+            },
+            'seance_entries': [
+                {
+                    'ID_seance': seance.ID_seance,
+                    'ID_salle': {
+                        'ID_salle': seance.ID_salle.ID_salle,
+                        'nom': seance.ID_salle.nom,
+                        'capacite': seance.ID_salle.capacite,
+                    },
+                    'date': seance.date,
+                    'heure': seance.heure,
+                    'prix': seance.prix,
+                }
+                for seance in seance_entries
+            ],
+        }
+        return Response(data)
+    except Film.DoesNotExist:
+        return Response({'error': 'Film ID not found'}, status=404)
+
+@api_view(['GET'])
 def getAllSeances(request):
     seances = Seance.objects.all() 
     serializers = SeanceSerializer(seances, many=True)

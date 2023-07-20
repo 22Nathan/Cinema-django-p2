@@ -27,3 +27,8 @@ class Seance(models.Model):
     date = models.DateField()
     heure = models.TimeField()
     prix = models.FloatField()
+    
+    def save(self, *args, **kwargs):
+        film = self.ID_film
+        self.prix = 20.0 if film.estSpecial else 12.5
+        super(Seance, self).save(*args, **kwargs)
