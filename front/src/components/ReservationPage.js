@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback} from 'react';
 import { useParams } from 'react-router-dom';
 import Seat from './Seat';
 import Navbar from './Navbar';
@@ -16,6 +16,7 @@ const ReservationPage = () => {
 
   const { filmId } = useParams();
   const [filmData, setFilmData] = useState(null); // État pour stocker les données du film
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
   useEffect(() => {
     const fetchFilmData = async () => {
@@ -42,6 +43,14 @@ const ReservationPage = () => {
     }
   };
 
+  // Méthode pour gérer la sélection d'un élément
+  const handleItemClick = useCallback(
+    (itemId) => {
+      setSelectedItemId(itemId);
+    },
+    [setSelectedItemId]
+  );
+    
   const handlePayment = () => {
     // Effectuez ici l'action de paiement souhaitée
     // Par exemple, rediriger l'utilisateur vers une page de paiement externe.
@@ -77,6 +86,8 @@ const ReservationPage = () => {
                   date={seance.date}
                   heure={seance.heure}
                   salle={seance.ID_salle.nom}
+                  isItemSelected={seance.ID_seance === selectedItemId} // Vérifiez si cet élément est sélectionné
+                  handleItemClick={() => handleItemClick(seance.ID_seance)} // Passez la méthode pour gérer la sélection
                 />
               ))}
             </div>

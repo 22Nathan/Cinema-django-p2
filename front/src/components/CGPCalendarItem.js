@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CGPCalendarItem.css'
 
-const CGPCalendarItem = ({ film, date, heure, salle }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleItemClick = () => {
-    setIsSelected(!isSelected);
-  };
-
+const CGPCalendarItem = ({ film, date, heure, salle, isItemSelected, handleItemClick }) => {
   return (
     <div
-      className={`cgp-calendar-item ${isSelected ? 'selected' : ''}`}
+      className={`cgp-calendar-item ${isItemSelected ? 'selected' : ''}`}
       onClick={handleItemClick}
     >
       <h3 className="film-title-reservation">{film.titre}</h3>
