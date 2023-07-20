@@ -5,12 +5,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import './ReservationPage.css';
 import axios from 'axios';
+import CGPCalendarItem from './CGPCalendarItem'; // Importez le composant CGP-Calendar-Item
 
 const seatPrice = 12.5; // Prix d'une place
 
 const ReservationPage = () => {
   const availableSeats = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3','A4', 'A5', 'A6', 'B4', 'B5', 'B6','A7', 'A8', 'A9', 'B7', 'B8', 'B9'];
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { filmId } = useParams();
   const [filmData, setFilmData] = useState(null); // État pour stocker les données du film
@@ -18,10 +20,13 @@ const ReservationPage = () => {
   useEffect(() => {
     const fetchFilmData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/film/${filmId}`);
-        setFilmData(response.data); // Mettre à jour l'état avec les données du film
+        const response = await axios.get(`http://127.0.0.1:8000/film/infos/${filmId}`);
+        console.log(response);
+        setFilmData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Une erreur s\'est produite lors de la récupération des données du film :', error);
+        setLoading(false);
       }
     };
 
@@ -51,9 +56,27 @@ const ReservationPage = () => {
     <div className="reservation-page">
     <div className="cinema-image-container">
           {filmData ? (
-            <img src={filmData.image} alt="Cinema" className="cinema-image" /> // Utiliser l'image du film récupérée depuis la requête Axios
-          ) : (
+            <img src={filmData.film.image} alt="Cinema" className="cinema-image" />
+            ) : (
             <div>Loading...</div>
+          )}
+        </div>
+        <div className="cgp-calendar-container">
+          <h2>Calendrier des projections :</h2>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <div>
+              {filmData.seance_entries.map((seance) => (
+                <CGPCalendarItem
+                  key={seance.ID_seance}
+                  film={filmData.film}
+                  date={seance.date}
+                  heure={seance.heure}
+                  salle={seance.ID_salle.nom}
+                />
+              ))}
+            </div>
           )}
         </div>
           <div className="reservation-content">
