@@ -1,43 +1,52 @@
 /* styles.css */
 
 .cgp-calendar-item {
-    background-color: #f9f9f9;
-    color: black;
-    border: 1px solid #ddd;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #333;
     padding: 15px;
     margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Heebo', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
   
+  .cgp-calendar-item:hover {
+    background-color: #333;
+  }
   .cgp-calendar-container{
     padding: 20px;
   }
   
   .cgp-calendar-item.selected {
-    background-color: black;
-    color: white;
-    cursor: pointer;
+    background-color: white;
+    color: black; 
+    transform: scale(1.05);
   }
   
-  .cgp-calendar-item.selected:hover {
-    background-color: black;
-  }
-
-  .ilm-title-reservation {
-    font-size: 20px;
+  .film-title-reservation {
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
+.cgp-calendar-item.selected .film-duration,
+.cgp-calendar-item.selected .projection-date,
+.cgp-calendar-item.selected .projection-time,
+.cgp-calendar-item.selected .projection-hall {
+  color: black;
+}
+
+
   .film-duration,
   .projection-date,
   .projection-time,
   .projection-hall {
-    font-size: 14px;
+    font-size: 16px;
     margin: 5px 0;
+    color: #c0c0c0;
   }
   
   .projection-date::before,
@@ -52,10 +61,10 @@
   }
   
   .projection-time::before {
-    color: #008000;
+    color: #3cde3d;
   }
   
   .projection-hall::before {
-    color: #4169e1;
+    color: #3d7dde;
   }
   
