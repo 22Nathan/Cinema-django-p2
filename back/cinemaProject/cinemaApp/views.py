@@ -103,3 +103,27 @@ def getAllSalles(request):
     salles = Salle.objects.all() 
     serializers = SalleSerializer(salles, many=True)
     return Response(serializers.data)
+
+@api_view(['PUT'])
+def updateUser(request, id):
+    try:
+        user = User.objects.get(id=id)
+    except User.DoesNotExist:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+    serializer = UserSerializer(user,data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def deleteUser(request, id):
+    try:
+        user = User.objects.get(id=id)
+    except User.DoesNotExist:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+    serializer = UserSerializer(user)
+    user.delete()
+    return Response(serializer.data)
