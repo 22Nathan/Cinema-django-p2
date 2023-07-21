@@ -43,21 +43,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-}
-
-PASSWORD_HASHERS = [
-    'cinemaProject.hashers.MyPBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.Argon2PasswordHasher',  # Default since Django 3.1
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  # Default since Django 3.1
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
