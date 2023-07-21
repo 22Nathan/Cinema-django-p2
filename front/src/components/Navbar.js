@@ -16,6 +16,11 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="navbar-auth">
+      <li className="nav-item">
+          <Link to="/profil" className="nav-link">
+            Profil
+          </Link>
+        </li>
         <li className="nav-item">
           <Link to="/login" className="nav-link">
             Se connecter
