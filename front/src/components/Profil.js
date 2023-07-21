@@ -3,7 +3,7 @@ import './Profil.css'
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const Profile = () => {
+const Profil = () => {
   return (
     <>
     <Navbar />
@@ -22,4 +22,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profil;
