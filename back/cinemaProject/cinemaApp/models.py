@@ -6,7 +6,7 @@ class Utilisateur(models.Model):
     ID_utilisateur = models.IntegerField()
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     mdp = models.CharField(max_length=20)
 
 class Film(models.Model):

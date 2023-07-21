@@ -5,7 +5,7 @@ import './Inscription.css';
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
     confirmPassword: '',
   });
@@ -18,10 +18,26 @@ const Inscription = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Replace this with your registration logic using formData.email and formData.password
-    console.log('Registration form submitted!');
+
+    // 
+    const res = await fetch('http://127.0.0.1:8000/register/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        'username':formData.username,
+        'password':formData.password
+      })
+    })
+    if (res.ok) {
+      alert( `code status : ${res.status} \nutilisateur : inscrit` )
+      return await res.json()
+    } else {
+      // throw new Error('Request failed')
+    }
+    // 
+
   };
 
   return (
@@ -31,12 +47,12 @@ const Inscription = () => {
         <h1>Inscription</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              id="email"
-              name="email"
-              value={formData.email}
+              id="username"
+              name="username"
+              value={formData.username}
               onChange={handleChange}
             />
           </div>
@@ -50,7 +66,7 @@ const Inscription = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
@@ -59,7 +75,7 @@ const Inscription = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
           <button type="submit">Inscription</button>
         </form>
       </div>

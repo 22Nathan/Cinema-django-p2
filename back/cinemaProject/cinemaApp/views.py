@@ -7,6 +7,7 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.hashers import make_password
 
 
 # --------------------------------------------------------------------------------
@@ -14,12 +15,13 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def inscription(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         user = User.objects.get(username= serializer.data['username'])
+        # user.password = make_password( request.data['password'] )
         token, _ = Token.objects.get_or_create(user=user)
         return Response({'status':200,'données': serializer.data, 'token': str(token)})
     return Response({'status': 403, 'errors': serializer.errors})
