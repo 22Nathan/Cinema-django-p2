@@ -124,12 +124,13 @@ h3 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-.screen{
+
+.screen {
   position: relative;
   margin-top: 2rem;
 }
 
-.screen span{
+.screen span {
   position: relative;
   z-index: 2;
   font-size: 24px;
@@ -141,7 +142,7 @@ h3 {
   background: #090a0b;
 }
 
-.screen svg{
+.screen svg {
   position: absolute;
   width: 60%;
   left: 20%;
